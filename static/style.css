@@ -1,0 +1,606 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E PALETA DE CORES (COM FUNDO AURORA MESH)
+   ========================================================================== */
+:root {
+    /* Base e Neutros */
+    --branco: #ffffff;
+    --texto-escuro: #1e293b;
+    --texto-suave: #64748b;
+    --borda-suave: rgba(226, 232, 240, 0.6);
+
+    /* Tons de Verde (Equilíbrio e Saúde) */
+    --verde-escuro: #14532d;
+    --verde-principal: #16a34a;
+    --verde-suave: rgba(240, 253, 244, 0.7);
+
+    /* Tons de Azul (Tranquilidade e Confiança) */
+    --azul-escuro: #1e3a8a;
+    --azul-principal: #2563eb;
+    --azul-suave: rgba(239, 246, 255, 0.7);
+
+    /* Tons de Roxo (Mindfulness e Meditação) */
+    --roxo-escuro: #581c87;
+    --roxo-principal: #9333ea;
+    --roxo-suave: rgba(250, 245, 255, 0.7);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--texto-escuro);
+    -webkit-font-smoothing: antialiased;
+
+    /* REUTILIZAÇÃO CRIATIVA DA PALETA: Efeito de névoa colorida fluida de fundo */
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(at 0% 0%, var(--verde-suave) 0px, transparent 45%),
+        radial-gradient(at 100% 20%, var(--azul-suave) 0px, transparent 45%),
+        radial-gradient(at 30% 60%, var(--roxo-suave) 0px, transparent 50%),
+        radial-gradient(at 80% 90%, var(--verde-suave) 0px, transparent 40%),
+        radial-gradient(at 0% 100%, var(--azul-suave) 0px, transparent 40%);
+    background-attachment: fixed; /* O fundo fica fixo enquanto o conteúdo rola suavemente */
+}
+
+.conteudo-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ==========================================================================
+   1. CABEÇALHO / NAVEGAÇÃO (Efeito Vidro / Glassmorphism)
+   ========================================================================== */
+.cabecalho-principal {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px); /* Desfoca suavemente o fundo colorido ao rolar a página */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borda-suave);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-nome {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--verde-escuro);
+    letter-spacing: -0.3px;
+}
+
+.logo-slogan {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+}
+
+.menu-navegacao a {
+    text-decoration: none;
+    color: var(--texto-escuro);
+    margin: 0 1.2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding-bottom: 0.4rem;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.menu-navegacao a.ativo, .menu-navegacao a:hover {
+    color: var(--azul-principal);
+    border-bottom: 2px solid var(--azul-principal);
+}
+
+.botao-ajuda-urgente {
+    background-color: #dc2626;
+    color: var(--branco);
+    text-decoration: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.botao-ajuda-urgente:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   2. SEÇÃO HERO (BOAS-VINDAS)
+   ========================================================================== */
+.secao-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 0 4rem 0;
+    gap: 3rem;
+}
+
+.hero-texto {
+    flex: 1.1;
+}
+
+.badge-alerta {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--azul-principal);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.secao-hero h1 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+}
+
+.destaque-verde {
+    background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal), var(--roxo-principal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-texto p {
+    font-size: 1.15rem;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.botao-primario {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.botao-primario:hover {
+    background-color: var(--azul-escuro);
+    transform: translateY(-2px);
+}
+
+.botao-secundario {
+    background-color: var(--branco);
+    color: var(--texto-escuro);
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.botao-secundario:hover {
+    background-color: #ffffff;
+    border-color: var(--roxo-principal);
+    color: var(--roxo-principal);
+    transform: translateY(-2px);
+}
+
+.hero-ilustracao {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-decorativo-avatar {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, rgba(240, 253, 244, 0.8), rgba(239, 246, 255, 0.8), rgba(250, 245, 255, 0.8));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* ==========================================================================
+   3. CARDS DE INFORMAÇÃO RÁPIDA (Efeito flutuante limpo com sombra suave)
+   ========================================================================== */
+.grid-informacoes-rapidas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 5rem;
+}
+
+.card-info {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 1.8rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--borda-suave);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-info:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
+    background-color: var(--branco);
+}
+
+.grid-informacoes-rapidas .card-info:nth-child(1) .card-info-icone { background-color: #f0fdf4; }
+.grid-informacoes-rapidas .card-info:nth-child(2) .card-info-icone { background-color: #eff6ff; }
+.grid-informacoes-rapidas .card-info:nth-child(3) .card-info-icone { background-color: #faf5ff; }
+.grid-informacoes-rapidas .card-info:nth-child(4) .card-info-icone { background-color: #f8fafc; }
+
+.card-info-icone {
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+.card-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   4. TEXTOS EXPLICATIVOS SOBRE SAÚDE MENTAL
+   ========================================================================== */
+.secao-textos-informativos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.bloco-texto {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--borda-suave);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.01);
+}
+
+.bloco-texto h2 {
+    margin: 0 0 1.2rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+}
+
+.secao-textos-informativos .bloco-texto:nth-child(1) h2 { color: var(--azul-escuro); }
+.secao-textos-informativos .bloco-texto:nth-child(2) h2 { color: var(--roxo-escuro); }
+
+.bloco-texto p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+}
+
+.bloco-texto ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.bloco-texto ul li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    color: var(--texto-escuro);
+}
+
+/* ==========================================================================
+   5. SEÇÃO: FERRAMENTAS PARA O SEU DIA
+   ========================================================================== */
+.alinhamento-titulo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.alinhamento-titulo h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.grid-ferramentas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.card-ferramenta {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--borda-suave);
+    border-radius: 16px;
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.card-ferramenta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.02);
+    background-color: var(--branco);
+}
+
+.grid-ferramentas .card-ferramenta:nth-child(1) .ferramenta-icone { background-color: #eff6ff; }
+.grid-ferramentas .card-ferramenta:nth-child(2) .ferramenta-icone { background-color: #f0fdf4; }
+.grid-ferramentas .card-ferramenta:nth-child(3) .ferramenta-icone { background-color: #faf5ff; }
+.grid-ferramentas .card-ferramenta:nth-child(4) .ferramenta-icone { background-color: #eff6ff; }
+
+.ferramenta-icone {
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+/* ==========================================================================
+   6. SEÇÃO: OS PILARES DO AUTOCUIDADO
+   ========================================================================== */
+.secao-autocuidado-corrigida {
+    margin-bottom: 5rem;
+}
+
+.grid-pilares-autocuidado {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card-pilar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--borda-suave);
+    border-radius: 20px;
+    padding: 2.2rem;
+    transition: all 0.2s;
+}
+
+.card-pilar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.02);
+}
+
+.grid-pilares-autocuidado .card-pilar:nth-child(1) { border-top: 4px solid var(--roxo-principal); }
+.grid-pilares-autocuidado .card-pilar:nth-child(2) { border-top: 4px solid var(--verde-principal); }
+.grid-pilares-autocuidado .card-pilar:nth-child(3) { border-top: 4px solid var(--azul-principal); }
+
+.grid-pilares-autocuidado .card-pilar:nth-child(1) .pilar-icone-balao { background-color: #faf5ff; }
+.grid-pilares-autocuidado .card-pilar:nth-child(2) .pilar-icone-balao { background-color: #f0fdf4; }
+.grid-pilares-autocuidado .card-pilar:nth-child(3) .pilar-icone-balao { background-color: #eff6ff; }
+
+.pilar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.pilar-icone-balao {
+    font-size: 1.3rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   7. SEÇÃO: PRECISA CONVERSAR? (LINHAS DE AJUDA)
+   ========================================================================== */
+.secao-ajuda-linhas {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--borda-suave);
+    margin-bottom: 5rem;
+}
+
+.linha-canal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem;
+    border-radius: 16px;
+    border: 1px solid var(--borda-suave);
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.2s;
+}
+
+.linha-canal-item:hover {
+    background-color: var(--branco);
+}
+
+.canal-icone {
+    font-size: 1.5rem;
+    background-color: var(--branco);
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--borda-suave);
+}
+
+.badge-numero-telefone {
+    background-color: #eff6ff;
+    color: var(--azul-principal);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. SEÇÃO: FALE CONOSCO (FORMULÁRIO INTEGRADO)
+   ========================================================================== */
+.secao-formulario-contato-ajustada {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid var(--borda-suave);
+    max-width: 650px;
+    margin: 0 auto 5rem auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+}
+
+.secao-formulario-contato-ajustada h2 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.campo input, .campo textarea {
+    padding: 0.9rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: all 0.2s;
+}
+
+.campo input:focus, .campo textarea:focus {
+    outline: none;
+    border-color: var(--roxo-principal);
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
+}
+
+.formulario-contato button {
+    background-color: var(--roxo-principal);
+    color: var(--branco);
+    border: none;
+    padding: 1.1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+}
+
+.formulario-contato button:hover {
+    background-color: var(--roxo-escuro);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   9. BANNER DE ENCERRAMENTO & RODAPÉ
+   ========================================================================== */
+.banner-frase-rodape {
+    background: linear-gradient(135deg, rgba(239, 246, 255, 0.9), rgba(250, 245, 255, 0.9));
+    border: 1px solid var(--borda-suave);
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.frase-conteudo p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--azul-escuro);
+    line-height: 1.4;
+}
+
+.botao-importante {
+    background-color: var(--roxo-escuro);
+    color: var(--branco);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.sub-rodape {
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (PARA CELULARES E TABLETS)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .grid-informacoes-rapidas, .grid-ferramentas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .secao-hero, .secao-textos-informativos, .grid-pilares-autocuidado {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-ilustracao { order: -1; }
+    .hero-botoes { justify-content: center; }
+    .banner-frase-rodape {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-informacoes-rapidas, .grid-ferramentas { grid-template-columns: 1fr; }
+    .container-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
