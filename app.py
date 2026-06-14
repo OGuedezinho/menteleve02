@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'chave_secreta_mente_leve_123'
 
-DB_PATH = 'mensagens.db'
+DB_PATH = 'sistema_mensagens.db'
 
 def init_db():
     """Inicializa o banco de dados e garante que a tabela exista com certeza."""
