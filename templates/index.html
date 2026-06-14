@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MenteLeve - Sua saúde mental importa</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>MenteLeve - Cuidar da mente é viver melhor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -15,27 +15,35 @@
                 <span class="logo-slogan">Cuidar da mente é viver melhor</span>
             </div>
             <nav class="menu-navegacao">
-                <a href="#inicio" class="ativo">Início</a>
+                <a href="#" class="ativo">Início</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#recursos">Recursos</a>
-                <a href="#autocuidado">Dicas</a>
+                <a href="#dicas">Dicas</a>
                 <a href="#contato">Contato</a>
             </nav>
-            <div class="acao-header">
-                <a href="tel:188" class="botao-ajuda-urgente">Preciso de ajuda</a>
-            </div>
+            <a href="#ajuda" class="botao-ajuda-urgente">Preciso de ajuda</a>
         </div>
     </header>
 
     <main class="conteudo-principal">
-
-        <section id="inicio" class="secao-hero">
-            <div class="hero-texto">
-                <div class="badge-alerta">
-                    <span class="icone-coracao">💚</span> Você não está sozinho
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container-alertas" style="margin-top: 2rem;">
+                    {% for category, message in messages %}
+                        <div class="alerta alerta-{{ category }}" style="padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-weight: 600; text-align: center; {% if category == 'sucesso' %} background-color: #d1e7dd; color: #0f5132; {% else %} background-color: #f8d7da; color: #842029; {% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="secao-hero">
+            <div class="hero-texto">
+                <span class="badge-alerta">💚 Você não está sozinho</span>
                 <h1>Sua saúde mental <br><span class="destaque-verde">importa.</span></h1>
-                <p>A MenteLeve é um espaço seguro com informações, ferramentas e apoio para ajudar você a cuidar do que realmente importa: você.</p>
+                <p>A MenteLeve é um espaço seguro com informações, ferramentas e apoio para ajudar você a cuidar do que realmente importa: <strong>você</strong>.</p>
                 <div class="hero-botoes">
                     <a href="#recursos" class="botao-primario">Explorar recursos</a>
                     <a href="#contato" class="botao-secundario">Como estamos hoje? 😊</a>
@@ -50,184 +58,148 @@
             <div class="card-info">
                 <div class="card-info-icone">🧠</div>
                 <h3>Informação de qualidade</h3>
-                <p>Conteúdos confiáveis sobre saúde mental e bem-estar para o seu dia a dia.</p>
+                <p>Conteúdos confiáveis sobre saúde mental e bem-estar.</p>
             </div>
             <div class="card-info">
                 <div class="card-info-icone">🌿</div>
                 <h3>Ferramentas práticas</h3>
-                <p>Exercícios, guias rápidos e técnicas simples para lidar com a ansiedade e estresse.</p>
+                <p>Exercícios e técnicas para lidar com o dia a dia.</p>
             </div>
             <div class="card-info">
                 <div class="card-info-icone">👥</div>
                 <h3>Apoio e acolhimento</h3>
-                <p>Direcionamento e recursos para você encontrar apoio profissional e especializado.</p>
+                <p>Recursos para você encontrar apoio quando precisar.</p>
             </div>
             <div class="card-info">
                 <div class="card-info-icone">🛡️</div>
                 <h3>Privado e seguro</h3>
-                <p>Um espaço focado em conscientização escolar, feito com respeito e sem julgamentos.</p>
+                <p>Um espaço seguro, sem julgamentos, para você ser você.</p>
             </div>
         </section>
 
         <section class="secao-textos-informativos">
             <div class="bloco-texto">
-                <h2>O que fazer ao enfrentar problemas mentais?</h2>
-                <ul>
-                    <li><strong>Reconheça seus sentimentos:</strong> Entender que não está bem é o primeiro passo.</li>
-                    <li><strong>Desabafe:</strong> Converse com um amigo, familiar ou professor de confiança.</li>
-                    <li><strong>Evite o isolamento:</strong> Estar perto de pessoas que te querem bem faz a diferença. Desconecte-se do isolamento constante que prejudica sua rotina.</li>
-                </ul>
+                <h2>Isolamento</h2>
+                <p>Evitar interações com amigos de quem você gosta, perder o interesse por hobbies antigos e preferir o isolamento constante podem ser sinais de alerta que merecem atenção especial.</p>
             </div>
-
             <div class="bloco-texto">
-                <h2>Como pedir ajuda profissional?</h2>
-                <p>Problemas de saúde mental devem ser tratados com o mesmo cuidado que a saúde do corpo. Você pode procurar:</p>
-                <ul>
-                    <li><strong>Psicólogos e Psiquiatras:</strong> Profissionais especializados no cuidado mental.</li>
-                    <li><strong>O CVV (Centro de Valorização da Vida):</strong> Atendimento pelo telefone <strong>188</strong> ou pelo site oficial para apoio imediato.</li>
-                    <li><strong>Unidades básicas de saúde (SUS):</strong> Ou os CAPS (Centros de Atenção Psicossocial).</li>
-                </ul>
+                <h2>A Importância do Autocuidado</h2>
+                <p>Cuidar de si mesmo não é egoísmo, é necessidade. Separar alguns minutos do seu dia para respirar, relaxar e desconectar das telas muda a forma como você lida com os desafios cotidianos.</p>
             </div>
         </section>
 
         <section id="recursos" class="secao-ferramentas-dia">
             <div class="alinhamento-titulo">
                 <h2>Ferramentas para o seu dia</h2>
-                <p class="subtitulo">Pequenas práticas que podem transformar seus dias</p>
+                <p style="color: var(--texto-suave);">Pequenas práticas que podem transformar seus dias</p>
             </div>
             <div class="grid-ferramentas">
                 <div class="card-ferramenta">
-                    <span class="ferramenta-icone">💨</span>
+                    <div class="ferramenta-icone">💨</div>
                     <h4>Respiração guiada</h4>
-                    <p>Exercícios práticos para acalmar os batimentos e desacelerar a mente.</p>
+                    <p style="font-size: 0.85rem; color: var(--texto-suave);">Exercícios para acalmar a mente.</p>
                 </div>
                 <div class="card-ferramenta">
-                    <span class="ferramenta-icone">📝</span>
+                    <div class="ferramenta-icone">📝</div>
                     <h4>Diário emocional</h4>
-                    <p>Reflita, coloque no papel e organize seus sentimentos diários de forma leve.</p>
+                    <p style="font-size: 0.85rem; color: var(--texto-suave);">Reflita e organize seus sentimentos.</p>
                 </div>
                 <div class="card-ferramenta">
-                    <span class="ferramenta-icone">☀️</span>
+                    <div class="ferramenta-icone">☀️</div>
                     <h4>Mindfulness</h4>
-                    <p>Técnicas de atenção plena para se conectar e focar no momento presente.</p>
+                    <p style="font-size: 0.85rem; color: var(--texto-suave);">Conecte-se com o presente.</p>
                 </div>
                 <div class="card-ferramenta">
-                    <span class="ferramenta-icone">🌙</span>
+                    <div class="ferramenta-icone">🌙</div>
                     <h4>Sono melhor</h4>
-                    <p>Dicas de higiene do sono para melhorar sua disposição física e psicológica.</p>
+                    <p style="font-size: 0.85rem; color: var(--texto-suave);">Dicas para melhorar sua qualidade de sono.</p>
                 </div>
             </div>
         </section>
 
-        <section id="autocuidado" class="secao-autocuidado-corrigida">
+        <section id="dicas" class="secao-autocuidado-corrigida">
             <div class="alinhamento-titulo">
-                <h2>Os Pilares do Autocuidado</h2>
-                <p class="subtitulo">Cuidar de si mesmo não é egoísmo, é necessidade. Veja pequenos hábitos que mudam tudo:</p>
+                <h2>Os Pilares do Autocuidado Regulatório</h2>
+                <p style="color: var(--texto-suave);">Veja pequenos hábitos que mudam tudo:</p>
             </div>
             
             <div class="grid-pilares-autocuidado">
                 <div class="card-pilar">
                     <div class="pilar-header">
-                        <span class="pilar-icone-balao">💤</span>
-                        <h3>Higiene do Sono</h3>
+                        <div class="pilar-icone-balao">🍎</div>
+                        <h4>Alimentação Coerente</h4>
                     </div>
-                    <p>Desligar telas de celulares 30 minutos antes de deitar e manter horários regulares ajuda a regenerar a mente e reduz drasticamente a ansiedade matinal.</p>
+                    <p style="font-size: 0.9rem; color: var(--texto-suave); line-height: 1.5;">Nutrir o corpo com alimentos reais ajuda a regular a produção de neurotransmissores ligados ao bem-estar emocional.</p>
                 </div>
-
                 <div class="card-pilar">
                     <div class="pilar-header">
-                        <span class="pilar-icone-balao">🍏</span>
-                        <h3>Nutrição Emocional</h3>
+                        <div class="pilar-icone-balao">🏃‍♂️</div>
+                        <h4>Movimento Constante</h4>
                     </div>
-                    <p>O que você consome afeta diretamente o seu humor. Alimentos ultraprocessados desregulam neurotransmissores. Prefira água, frutas e alimentos naturais.</p>
+                    <p style="font-size: 0.9rem; color: var(--texto-suave); line-height: 1.5;">Atividades físicas reduzem drasticamente os níveis de cortisol (hormônio do estresse) e liberam endorfina.</p>
                 </div>
-
                 <div class="card-pilar">
                     <div class="pilar-header">
-                        <span class="pilar-icone-balao">🛡️</span>
-                        <h3>Aprenda a dizer "Não"</h3>
+                        <div class="pilar-icone-balao">💤</div>
+                        <h4>Descanso e Repouso</h4>
                     </div>
-                    <p>Sua energia diária é finita. Definir limites claros na sua rotina pessoal protege sua estabilidade emocional e previne o esgotamento extremo (Burnout).</p>
+                    <p style="font-size: 0.9rem; color: var(--texto-suave); line-height: 1.5;">Dormir bem consolida a memória, repara as células cerebrais e estabiliza o humor para o dia seguinte.</p>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <img src="{{ url_for('static', filename='pessoa_descansando.png') }}" alt="Pessoa descansando" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05);">
             </div>
         </section>
 
-        <section class="secao-ajuda-linhas">
-            <div class="ajuda-linhas-texto">
+        <section id="ajuda" class="secao-ajuda-linhas">
+            <div class="alinhamento-titulo">
                 <h2>Precisa conversar?</h2>
-                <p>Buscar ajuda é um ato de coragem e autocuidado.</p>
+                <p style="color: var(--texto-suave);">Buscar ajuda é um ato de coragem.</p>
             </div>
-            <div class="lista-linhas-canais">
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto;">
                 <div class="linha-canal-item">
-                    <div class="canal-detalhe">
-                        <span class="canal-icone">💬</span>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="canal-icone">💬</div>
                         <div>
-                            <strong>CVV - Apoio emocional</strong>
-                            <p>Converse de forma totalmente gratuita, anônima e sigilosa.</p>
+                            <strong>CVV - Apoio emocional</strong><br>
+                            <span style="font-size: 0.85rem; color: var(--texto-suave);">Converse de forma gratuita e sigilosa.</span>
                         </div>
                     </div>
-                    <span class="badge-numero-telefone">188</span>
-                </div>
-                <div class="linha-canal-item">
-                    <div class="canal-detalhe">
-                        <span class="canal-icone">🩺</span>
-                        <div>
-                            <strong>Encontre um psicólogo</strong>
-                            <p>Dicas e orientações para encontrar ajuda profissional na rede pública ou privada.</p>
-                        </div>
-                    </div>
-                    <span class="seta-link">➔</span>
-                </div>
-                <div class="linha-canal-item">
-                    <div class="canal-detalhe">
-                        <span class="canal-icone">🤝</span>
-                        <div>
-                            <strong>Grupos de apoio escolar</strong>
-                            <p>Conecte-se com pessoas, colegas e redes que entendem a sua realidade.</p>
-                        </div>
-                    </div>
-                    <span class="seta-link">➔</span>
+                    <span class="badge-numero-telefone">Ligue 188</span>
                 </div>
             </div>
         </section>
 
         <section id="contato" class="secao-formulario-contato-ajustada">
             <h2>Fale Conosco</h2>
-            <p>Se você tem alguma dúvida ou quer deixar uma sugestão para o nosso trabalho escolar, envie uma mensagem pelo formulário abaixo:</p>
-            
-            <form action="/enviar" method="POST" class="formulario-contato">
+            <p style="text-align: center; color: var(--texto-suave); margin-bottom: 2rem;">Envie sua dúvida, desabafo ou sugestão. Estamos aqui para ouvir.</p>
+            <form action="{{ url_for('enviar_mensagem') }}" method="POST" class="formulario-contato">
                 <div class="campo">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                    <input type="text" name="nome" placeholder="Seu nome" required>
                 </div>
-                
                 <div class="campo">
-                    <label for="email">E-mail:</label>
-                    <input type="type" id="email" name="email" required placeholder="Seu e-mail">
+                    <input type="email" name="email" placeholder="Seu melhor e-mail" required>
                 </div>
-                
                 <div class="campo">
-                    <label for="mensagem">Sua Dúvida ou Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Digite aqui..."></textarea>
+                    <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
                 </div>
-                
-                <button type="submit">Enviar Mensagem</button>
+                <button type="submit">Enviar Mensagem para o Painel</button>
             </form>
         </section>
 
-    </main>
-
-    <footer class="rodape-final">
         <div class="banner-frase-rodape">
             <div class="frase-conteudo">
-                <span class="folha-icone">🌿</span>
-                <p><strong>Cuidar da mente é um ato de amor-próprio.</strong> Você merece se sentir bem. Um passo de cada vez.</p>
+                <p><strong>Cuidar da mente é um ato de amor-próprio.</strong></p>
+                <span style="font-size: 0.9rem; color: var(--texto-suave);">Você merece se sentir bem. Um passo de cada vez.</span>
             </div>
-            <button class="botao-importante">Você é importante</button>
+            <button class="botao-importante">Você é importante 🤍</button>
         </div>
-        <div class="sub-rodape">
-            <p>Trabalho Escolar sobre Conscientização da Saúde Mental. Se precisar de ajuda imediata, ligue para o CVV no número 188.</p>
-        </div>
+
+    </main>
+
+    <footer class="sub-rodape">
+        <p>&copy; 2026 MenteLeve. Todos os direitos reservados. Feito com cuidado para o seu bem-estar.</p>
     </footer>
 
 </body>
