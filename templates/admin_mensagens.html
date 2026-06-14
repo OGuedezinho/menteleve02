@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - MenteLeve</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="cabecalho-principal">
+        <div class="container-header">
+            <div class="logo-area">
+                <span class="logo-nome">MenteLeve</span>
+                <span class="logo-slogan">Painel de Controle Administrativo</span>
+            </div>
+            <nav class="menu-navegacao">
+                <a href="{{ url_for('index') }}">Voltar ao Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="conteudo-principal" style="padding-top: 3rem;">
+        <h2>Mensagens Recebidas pelo Formulário</h2>
+        <p style="color: var(--texto-suave);">Abaixo estão listadas todas as interações enviadas pelos usuários organizadas por ordem de chegada.</p>
+
+        {% if mensagens %}
+            <table class="tabela-mensagens">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Mensagem</th>
+                        <th>Data de Envio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in mensagens %}
+                        <tr>
+                            <td><strong>{{ msg.nome }}</strong></td>
+                            <td>{{ msg.email }}</td>
+                            <td>{{ msg.mensagem }}</td>
+                            <td><small style="color: var(--texto-suave);">{{ msg.data }}</small></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="painel-vazio-admin">
+                <p>Nenhuma mensagem foi recebida no banco de dados até o momento. 📥</p>
+            </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>
